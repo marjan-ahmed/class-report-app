@@ -1,13 +1,15 @@
 "use client"
-import { useTheme } from 'next-themes'
-import React, { useEffect, useState } from 'react'
+import { useTheme } from 'next-themes';
+import React, { useEffect, useState } from 'react';
+import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth';
+import { useRouter } from 'next/navigation';
 
 function Dashboard() {
   const { setTheme } = useTheme()
   const [selectedMonth, setSelectedMonth] = useState();
 
   useEffect(() => {
-    setTheme('light')
+    setTheme('system')
   })
   return (
     <div className='p-10'>

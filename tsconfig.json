@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "middleware.js", "src/app/dashboard/layout.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "middleware.js", "src/app/dashboard/layout.jsx", "src/app/dashboard/students/_components/StudentList.tsx"],
   "exclude": ["node_modules"]
 }
