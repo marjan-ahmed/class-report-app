@@ -61,7 +61,7 @@ const SignUpForm: React.FC<SignUpProps> = ({ onSwitch, onGoogleSignUp }) => {
   }
 
   return (
-    <Card className="mx-auto max-w-sm">
+    <Card className="mx-auto max-w-sm shadow">
       <CardHeader>
         <CardTitle className="text-xl">Sign Up</CardTitle>
         <CardDescription>

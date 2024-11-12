@@ -1,11 +1,13 @@
 "use client";
-import Image from "next/image";
+import Head from 'next/head';
 import SignInForm from "@/components/SignInForm";
 import SignUpForm from "@/components/Registration";
 import { useRouter } from "next/navigation";
 import { getAuth, signInWithPopup, GoogleAuthProvider, User } from 'firebase/auth';
 import { useEffect, useState } from "react";
-import { auth } from "./services/firebase";
+import { ThemeProvider } from '@/components/theme-provider';
+import { useTheme } from 'next-themes';
+
 
 export default function Home() { 
     const [isSignIn, setIsSignIn] = useState(true);
@@ -45,19 +47,25 @@ export default function Home() {
     }, []);
 
     return (
+        <>
+        
+<Head>
+    <link rel="icon" href="/logo.png" />
+</Head>
         <div className="flex flex-col md:flex-row h-screen">
-            <div className="flex-1 relative">
-                <Image
-                    src={'/hero_img.JPG'}
-                    alt="Left Section Image"
-                    layout="fill"
-                    objectFit="cover"
-                    className="w-full h-full"
-                />
-            </div>
+        <div className="flex-1 relative">
+          <video
+            className="absolute top-0 left-0 w-full h-full object-cover"
+            src="https://video.wixstatic.com/video/e23836_8668b1ec39574ac282c93a5eeea7d18f/720p/mp4/file.mp4"
+            autoPlay
+            muted 
+            loop
+            playsInline
+          />
+        </div>
             
             <div className="flex-1 flex flex-col items-center justify-center bg-white p-4">
-                <h1 className="text-3xl font-bold mb-6">Welcome! My name is Marjan Ahmed</h1>
+                <h1 className="capitalize text-3xl font-bold mb-6 font-[proxima-n-w01-reg]">Welcome to Online Nasra School</h1>
                 <div>
                     {isSignIn ? (
                         <SignInForm onGoogleSignIn={handleGoogleSignIn} onSwitch={toggleForm} />
@@ -67,5 +75,6 @@ export default function Home() {
                 </div>
             </div>
         </div>
+        </>
     );
 };
