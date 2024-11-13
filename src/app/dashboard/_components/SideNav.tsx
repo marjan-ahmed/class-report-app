@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect } from 'react';
 import Image from 'next/image';
-import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
 import { usePathname } from 'next/navigation';
 import dynamic from 'next/dynamic';
 
@@ -22,8 +21,6 @@ interface MenuItem {
 }
 
 const SideNav: React.FC = () => {
-  const { user } = useKindeBrowserClient();
-  const pictureSrc = user?.picture || '/default-user-picture.svg';
   const pathname = usePathname(); // Moved inside the component
 
   useEffect(() => {
@@ -79,21 +76,20 @@ const SideNav: React.FC = () => {
         </Link>
       ))}
 
-      <div className='flex gap-2 items-center bottom-5 fixed p-2'>
+      {/* <div className='flex gap-2 items-center bottom-5 fixed p-2'>
         <Image 
           className='rounded-full'
           src={pictureSrc}
           width={35}
           height={35}
           alt='user'
-        />
+        /> */}
       
         <div>
-          <h2 className='text-sm font-bold'>{user?.given_name} {user?.family_name}</h2>
-          <h2 className='text-xs text-slate-400'>{user?.email}</h2>
+          {/* <h2 className='text-sm font-bold'>{user?.given_name} {user?.family_name}</h2>
+          <h2 className='text-xs text-slate-400'>{user?.email}</h2> */}
         </div>
       </div>
-    </div>
   );
 };
 
